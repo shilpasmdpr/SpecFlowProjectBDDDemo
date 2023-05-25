@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.ObjectModel;
@@ -40,6 +41,21 @@ namespace SpecFlowProjectBDDDemo.Utility
         {
             return driver.FindElement(by).Selected;
         }
-        
+        public void PerformClickAction(IWebElement webElement)
+        {
+            new Actions(driver).Click(webElement).Perform();
         }
+        public void PerformDoubleClickAction(IWebElement webElement)
+        {
+            new Actions(driver).DoubleClick(webElement).Perform();
+        }
+        public void PerformRightClickAction(IWebElement webElement)
+        {
+            new Actions(driver).ContextClick(webElement).Perform();
+        }
+        public void ClickButtonByXPath(By by)
+        {
+            driver.FindElement(by).Click();
+        }
+    }
 }
