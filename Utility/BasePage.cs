@@ -36,5 +36,9 @@ namespace SpecFlowProjectBDDDemo.Utility
         {
             return driver.FindElement(by).GetAttribute("innerText");
         }
+        public Boolean IsElementSelected(By by)
+        {
+            return driver.FindElement(by).Selected;
+        }
     }
 }

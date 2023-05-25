@@ -8,48 +8,43 @@ using TechTalk.SpecFlow;
 namespace SpecFlowProjectBDDDemo
 {
     [Binding]
-    public class CheckBox
+    public class CheckBoxStepDefinitions
     {
         private IWebDriver driver;
+        CheckBoxPage checkBox;
 
-        public CheckBox(IWebDriver driver)
+        public CheckBoxStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
         }
         [Then(@"Verify Check Box Display")]
         public void ThenVerifyCheckBoxDisplay()
         {
+            checkBox.VerifyCheckBoxOptionDisplay();
         }
 
         [When(@"Click on Check Box Option")]
         public void WhenClickOnCheckBoxOption()
         {
-            ScenarioContext.Current.Pending();
+            checkBox.ClickOnTextBox();
         }
 
         [When(@"the click on Toggle")]
         public void WhenTheClickOnToggle()
         {
-            ScenarioContext.Current.Pending();
+            checkBox.ClickOnToggle();
         }
 
         [When(@"Click on Notes checkbox")]
         public void WhenClickOnNotesCheckbox()
         {
-            ScenarioContext.Current.Pending();
+            checkBox.ClickOnNotesOption();
         }
 
         [Then(@"Verify Notes Option selected")]
         public void ThenVerifyNotesOptionSelected()
         {
-            ScenarioContext.Current.Pending();
-        }
-
-
-        [Then(@"Verify Demo QA page title")]
-        public void ThenVerifyDemoQAPageTitle()
-        {
-            Assert.AreEqual("DEMOQA", driver.Title);
+            checkBox.VerifyNotesIsSelected();
         }
     }
 }
