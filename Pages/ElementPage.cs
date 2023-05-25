@@ -18,6 +18,12 @@ namespace SpecFlowProjectBDDDemo.Pages
         {
             this.driver = driver;
         }
+
+        public ElementPage(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
         By ElementOption = By.XPath("//*[text()='Elements']");
         By TextBoxHeading = By.XPath("//div[text()='Text Box']");
         By TextBoxOption = By.XPath("//span[text()='Text Box']");
