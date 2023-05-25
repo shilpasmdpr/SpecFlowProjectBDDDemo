@@ -40,5 +40,6 @@ namespace SpecFlowProjectBDDDemo.Utility
         {
             return driver.FindElement(by).Selected;
         }
-    }
+        
+        }
 }

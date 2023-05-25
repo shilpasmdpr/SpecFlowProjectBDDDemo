@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,20 @@ namespace SpecFlowProjectBDDDemo.Pages
 {
     public class HomePage
     {
-        private IWebDriver driver;
+        private readonly RemoteWebDriver _driver;
 
-        public HomePage(IWebDriver driver)
+        public HomePage(RemoteWebDriver driver) => _driver = driver;
+        // private IWebDriver driver;
+
+        //public HomePage(IWebDriver driver)
+        //{
+        //    this.driver = driver;
+        //}
+        public string verifyPageTitle()
         {
-            this.driver = driver;
-        }
-        public HomePage verifyPageTitle()
-        {
-            string pageTitle = driver.Title;
-            return new HomePage(driver);
+            string pageTitle = _driver.Title;
+            //return new HomePage(_driver);
+            return pageTitle;
         }
     }
 }

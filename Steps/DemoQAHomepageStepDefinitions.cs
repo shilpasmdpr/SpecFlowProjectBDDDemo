@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 using SpecFlowProjectBDDDemo.Pages;
 using System;
 using System.Threading;
@@ -8,10 +9,12 @@ using TechTalk.SpecFlow;
 namespace SpecFlowProjectBDDDemo
 {
     [Binding]
+
+
     public class DemoQAHomepageStepDefinitions
     {
         private IWebDriver driver;
-
+       HomePage? homePage = null;
         public DemoQAHomepageStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
@@ -25,8 +28,9 @@ namespace SpecFlowProjectBDDDemo
 
         [Then(@"Verify Demo QA page title")]
         public void ThenVerifyDemoQAPageTitle()
+
         {
-            Assert.AreEqual("DEMOQA", driver.Title);
+            Assert.AreEqual("DEMOQA", homePage.verifyPageTitle());
         }
     }
 }

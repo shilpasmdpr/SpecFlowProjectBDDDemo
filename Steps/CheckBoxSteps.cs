@@ -6,38 +6,36 @@ using TechTalk.SpecFlow;
 namespace SpecFlowProjectBDDDemo.Features
 {
     [Binding]
-    public class CheckBoxStepDefinitions
+
+    public class CheckBoxSteps
     {
         private IWebDriver driver;
         CheckBoxPage checkBox;
 
-        public CheckBoxStepDefinitions(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+
         [Then(@"Verify Check Box Display")]
         public void ThenVerifyCheckBoxDisplay()
         {
             checkBox.VerifyCheckBoxOptionDisplay();
         }
-
         [When(@"Click on Check Box Option")]
         public void WhenClickOnCheckBoxOption()
         {
             checkBox.ClickOnTextBox();
         }
-
+        
         [When(@"the click on Toggle")]
         public void WhenTheClickOnToggle()
         {
-            checkBox.ClickOnTextBox();
+            checkBox.ClickOnToggle();
         }
-
+        
         [When(@"Click on Notes checkbox")]
         public void WhenClickOnNotesCheckbox()
         {
             checkBox.ClickOnNotesOption();
         }
+       
         [Then(@"Verify Notes Option selected")]
         public void ThenVerifyNotesOptionSelected()
         {
@@ -45,4 +43,3 @@ namespace SpecFlowProjectBDDDemo.Features
         }
     }
 }
-

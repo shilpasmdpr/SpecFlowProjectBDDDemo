@@ -19,5 +19,3 @@ Scenario Outline: Verify Text Elements
 	| Full Name | Email                  | Current Address | Permanent Address |
 	| Shilpa | shilpa@gmail.com                  | Current Address | Permanent Address |
 	
-
-	
