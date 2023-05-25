@@ -36,53 +36,53 @@ namespace SpecFlowProjectBDDDemo.Pages
         By CurrentAddressValue = By.Id("currentAddress");
         By PermanentAddressValue = By.Id("permanentAddress");
 
-        public void verifyElementDisplay()
+        public ElementPage verifyElementDisplay()
         {
             IsElementDisplayed(ElementOption);
-            //return new ElementPage(driver);
+            return new ElementPage(driver);
         }
-        public void ClickOnElementOption()
+        public ElementPage ClickOnElementOption()
         {
             Thread.Sleep(2000);
             driver.FindElement(ElementOption).Click();
             Thread.Sleep(2000);
-           // return new ElementPage(driver);
+            return new ElementPage(driver);
         }
-        public void verifyTextBoxDisplay()
+        public ElementPage verifyTextBoxDisplay()
         {
             IsElementDisplayed(TextBoxOption);
-            //return new ElementPage(driver);
+            return new ElementPage(driver);
         }
-        public void ClickOnTextBox()
+        public ElementPage ClickOnTextBox()
         {
             driver.FindElement(TextBoxOption).Click();
-           // return new ElementPage(driver);
+            return new ElementPage(driver);
         }
-        public void VerifyTextBoxHeading()
+        public ElementPage VerifyTextBoxHeading()
         {
             Assert.AreEqual("Text Box", TextBoxHeading);
-            //return new ElementPage(driver);
+            return new ElementPage(driver);
         }
-        public void VerifyTextBoxElements()
+        public ElementPage VerifyTextBoxElements()
         {
             Assert.AreEqual("Text Box", TextBoxHeading);
-            //return new ElementPage(driver);
+            return new ElementPage(driver);
         }
-        public void EnterTextBoxValues(string fullName,string Email,string currentAddress, string permanentAddress)
+        public ElementPage EnterTextBoxValues(string fullName,string Email,string currentAddress, string permanentAddress)
         {
             SendKeys(FullNameInput, fullName);
             SendKeys(EmailInput, Email);
             SendKeys(CurrentAddressInput, currentAddress);
             SendKeys(PermanentAddressInput, permanentAddress);
-            //return new ElementPage(driver);
+            return new ElementPage(driver);
         }
-        public void VerifyTextBoxValues(string fullName, string Email, string currentAddress, string permanentAddress)
+        public ElementPage VerifyTextBoxValues(string fullName, string Email, string currentAddress, string permanentAddress)
         {
             Assert.AreEqual(fullName, GetInnerTextAttributeValueByLocator(FullNameValue));
             Assert.AreEqual(fullName, GetInnerTextAttributeValueByLocator(EmailValue));
             Assert.AreEqual(fullName, GetInnerTextAttributeValueByLocator(CurrentAddressValue));
             Assert.AreEqual(fullName, GetInnerTextAttributeValueByLocator(PermanentAddressValue));
-            //return new ElementPage(driver);
+            return new ElementPage(driver);
         }
     }
 }

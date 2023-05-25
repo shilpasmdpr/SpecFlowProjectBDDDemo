@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using SpecFlowProjectBDDDemo.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SpecFlowProjectBDDDemo.Pages
 {
-    public class CheckBoxPage
+    public class CheckBoxPage : BasePage
     {
         private IWebDriver driver;
 
@@ -15,10 +16,11 @@ namespace SpecFlowProjectBDDDemo.Pages
         {
             this.driver = driver;
         }
-        public HomePage verifyPageTitle()
+        By CheckBoxOption = By.XPath("//*[text()='Check Box']");
+        public CheckBoxPage verifyElementDisplay()
         {
-            string pageTitle = driver.Title;
-            return new HomePage(driver);
+            IsElementDisplayed(CheckBoxOption);
+            return new CheckBoxPage(driver);
         }
     }
 }
