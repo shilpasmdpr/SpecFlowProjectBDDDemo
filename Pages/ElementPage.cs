@@ -14,11 +14,6 @@ namespace SpecFlowProjectBDDDemo.Pages
     {
         private IWebDriver driver;
 
-        public ElementPage(IWebDriver driver, IWebDriver driver1)
-        {
-            this.driver = driver;
-        }
-
         public ElementPage(IWebDriver driver)
         {
             this.driver = driver;
@@ -36,53 +31,53 @@ namespace SpecFlowProjectBDDDemo.Pages
         By CurrentAddressValue = By.Id("currentAddress");
         By PermanentAddressValue = By.Id("permanentAddress");
 
-        public ElementPage verifyElementDisplay()
+        public void verifyElementDisplay()
         {
             IsElementDisplayed(ElementOption);
-            return new ElementPage(driver);
+            //return new ElementPage(driver);
         }
-        public ElementPage ClickOnElementOption()
+        public void ClickOnElementOption()
         {
             Thread.Sleep(2000);
             driver.FindElement(ElementOption).Click();
             Thread.Sleep(2000);
-            return new ElementPage(driver);
+            //return new ElementPage(driver);
         }
-        public ElementPage verifyTextBoxDisplay()
+        public void verifyTextBoxDisplay()
         {
             IsElementDisplayed(TextBoxOption);
-            return new ElementPage(driver);
+            //return new ElementPage(driver);
         }
-        public ElementPage ClickOnTextBox()
+        public void ClickOnTextBox()
         {
             driver.FindElement(TextBoxOption).Click();
-            return new ElementPage(driver);
+            //return new ElementPage(driver);
         }
-        public ElementPage VerifyTextBoxHeading()
+        public void VerifyTextBoxHeading()
         {
             Assert.AreEqual("Text Box", TextBoxHeading);
-            return new ElementPage(driver);
+           // return new ElementPage(driver);
         }
-        public ElementPage VerifyTextBoxElements()
+        public void VerifyTextBoxElements()
         {
             Assert.AreEqual("Text Box", TextBoxHeading);
-            return new ElementPage(driver);
+            //return new ElementPage(driver);
         }
-        public ElementPage EnterTextBoxValues(string fullName,string Email,string currentAddress, string permanentAddress)
+        public void EnterTextBoxValues(string fullName,string Email,string currentAddress, string permanentAddress)
         {
             SendKeys(FullNameInput, fullName);
             SendKeys(EmailInput, Email);
             SendKeys(CurrentAddressInput, currentAddress);
             SendKeys(PermanentAddressInput, permanentAddress);
-            return new ElementPage(driver);
+            //return new ElementPage(driver);
         }
-        public ElementPage VerifyTextBoxValues(string fullName, string Email, string currentAddress, string permanentAddress)
+        public void VerifyTextBoxValues(string fullName, string Email, string currentAddress, string permanentAddress)
         {
             Assert.AreEqual(fullName, GetInnerTextAttributeValueByLocator(FullNameValue));
             Assert.AreEqual(fullName, GetInnerTextAttributeValueByLocator(EmailValue));
             Assert.AreEqual(fullName, GetInnerTextAttributeValueByLocator(CurrentAddressValue));
             Assert.AreEqual(fullName, GetInnerTextAttributeValueByLocator(PermanentAddressValue));
-            return new ElementPage(driver);
+            //return new ElementPage(driver);
         }
     }
 }

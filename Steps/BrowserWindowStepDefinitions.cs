@@ -60,7 +60,7 @@ namespace SpecFlowProjectBDDDemo.Steps
         [Then(@"Verify New Window Content")]
         public void ThenVerifyNewWindowContent()
         {
-            throw new PendingStepException();
+            browserWindow.VerifyNewWindowContent();
         }
 
         [Then(@"Verify New Window Message")]

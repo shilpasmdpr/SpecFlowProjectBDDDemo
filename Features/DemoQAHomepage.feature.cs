@@ -74,14 +74,14 @@ namespace SpecFlowProjectBDDDemo.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Launch Demo QA Page")]
+        [NUnit.Framework.DescriptionAttribute("Navigate to the site: https://demoqa.com/")]
         [NUnit.Framework.CategoryAttribute("DemoQA")]
-        public virtual void LaunchDemoQAPage()
+        public virtual void NavigateToTheSiteHttpsDemoqa_Com()
         {
             string[] tagsOfScenario = new string[] {
                     "DemoQA"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch Demo QA Page", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the site: https://demoqa.com/", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

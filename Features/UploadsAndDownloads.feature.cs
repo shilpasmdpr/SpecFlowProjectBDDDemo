@@ -20,22 +20,22 @@ namespace SpecFlowProjectBDDDemo.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("WebTables")]
-    public partial class WebTablesFeature
+    [NUnit.Framework.DescriptionAttribute("UploadsAndDownloads")]
+    public partial class UploadsAndDownloadsFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "WebTables.feature"
+#line 1 "UploadsAndDownloads.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "WebTables", "\tSimple calculator for adding two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "UploadsAndDownloads", "A short summary of the feature", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,27 +74,15 @@ namespace SpecFlowProjectBDDDemo.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Edit the contents of the Web Table")]
-        [NUnit.Framework.CategoryAttribute("DemoQA")]
-        [NUnit.Framework.TestCaseAttribute("Shilpa", "MV", "shilpa@gmail.com", "30", "10000", "Testing", null)]
-        public virtual void EditTheContentsOfTheWebTable(string firstName, string lastName, string email, string age, string salary, string department, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("[scenario name]")]
+        [NUnit.Framework.CategoryAttribute("tag1")]
+        public virtual void ScenarioName()
         {
-            string[] @__tags = new string[] {
-                    "DemoQA"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = new string[] {
+                    "tag1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("First Name", firstName);
-            argumentsOfScenario.Add("Last Name", lastName);
-            argumentsOfScenario.Add("Email", email);
-            argumentsOfScenario.Add("Age", age);
-            argumentsOfScenario.Add("Salary", salary);
-            argumentsOfScenario.Add("Department", department);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit the contents of the Web Table", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[scenario name]", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -114,24 +102,23 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 6
- testRunner.Then("Verify Web Tables Element Display", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 7
- testRunner.When("Click On Web Tables Element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("Verify Upload And Download Element Display", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 8
- testRunner.And("Click On Edit Web Tables", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("Click on Upload And Download Element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
- testRunner.Then("Verify Registration Heading Display", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("Click on choose file and Upload a file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
-   testRunner.When(string.Format("Enter Values Into Text Box Full Name {0} , Last Name {1}, Email {2}, Age {3} ,Sal" +
-                            "ary {4} And Department{5} Submit", firstName, lastName, email, age, salary, department), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("Verify file uploaded successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 11
-   testRunner.Then(string.Format("Verify {0} , {1}, {2}, {3} ,{4} ,{5}", firstName, lastName, age, email, salary, department), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("Click on download button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 12
+ testRunner.Then("Verify file downloaded successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

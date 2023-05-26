@@ -9,15 +9,14 @@ using TechTalk.SpecFlow;
 namespace SpecFlowProjectBDDDemo
 {
     [Binding]
-
-
     public class DemoQAHomepageStepDefinitions
     {
         private IWebDriver driver;
-       HomePage? homePage = null;
+       private HomePage homePage;
         public DemoQAHomepageStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
+            homePage = new HomePage(driver);
         }
         [Given(@"Launch Demo QA URL")]
         public void GivenLaunchDemoQAURL()

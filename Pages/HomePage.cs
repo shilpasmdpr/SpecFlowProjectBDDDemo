@@ -10,19 +10,16 @@ namespace SpecFlowProjectBDDDemo.Pages
 {
     public class HomePage
     {
-        private readonly RemoteWebDriver _driver;
 
-        public HomePage(RemoteWebDriver driver) => _driver = driver;
-        // private IWebDriver driver;
+        private IWebDriver driver;
 
-        //public HomePage(IWebDriver driver)
-        //{
-        //    this.driver = driver;
-        //}
+        public HomePage(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
         public string verifyPageTitle()
         {
-            string pageTitle = _driver.Title;
-            //return new HomePage(_driver);
+            string pageTitle = driver.Title;
             return pageTitle;
         }
     }

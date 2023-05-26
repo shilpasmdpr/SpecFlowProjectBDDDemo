@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
+using SpecFlowProjectBDDDemo.Pages;
 using System;
 using System.Collections.ObjectModel;
 using System.Configuration;
@@ -15,15 +16,14 @@ namespace SpecFlowProjectBDDDemo.Utility
     public class BasePage
     {
         private IWebDriver driver;
-
+        
         public Boolean IsElementDisplayed(By by)
         {
-           
-                if(driver.FindElement(by).Displayed)
-
-                {
-                return true;
-            }else
+            try
+            {
+                return driver.FindElement(by).Displayed;
+            }
+            catch (Exception)
             {
                 return false;
             }

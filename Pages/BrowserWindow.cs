@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using AventStack.ExtentReports.Model;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using SpecFlowProjectBDDDemo.Utility;
@@ -76,5 +77,44 @@ namespace SpecFlowProjectBDDDemo.Pages
             Thread.Sleep(2000);
             return new BrowserWindow(driver);
         }
+        public BrowserWindow VerifyNewWindowContent()
+        {
+            Thread.Sleep(2000);
+            driver.SwitchTo().NewWindow(WindowType.Window); 
+            Thread.Sleep(2000);
+            Assert.AreEqual(driver.SwitchTo().Window(driver.WindowHandles[1]).Url, "https://demoqa.com/sample");
+            driver.SwitchTo().Window(driver.WindowHandles[1]).Close();
+            Thread.Sleep(2000);
+            driver.SwitchTo().Window(driver.WindowHandles[0]);
+            return new BrowserWindow(driver);
+        }
+        public BrowserWindow ClickOnNewWindowMessage()
+        {
+            Thread.Sleep(2000);
+            ClickButtonByXPath(MessageWindowButton);
+            Thread.Sleep(2000);
+            return new BrowserWindow(driver);
+        }
+        public BrowserWindow VerifyNewWindowMessage()
+        {
+            Thread.Sleep(2000);
+            driver.SwitchTo().NewWindow(WindowType.Window);
+            //Set<String> winHandles = driver.getWindowHandles();
+            //Iterator<String> itr = winHandles.iterator();
+
+            //String currentWin = itr.next();
+            //String newBrowserWin = null;
+            //if (itr.hasNext())
+            //    newBrowserWin = itr.next();
+
+            //String newBrowserWinText;
+            //if (newBrowserWin != null)
+            //{
+            //    driver.switchTo().window(newBrowserWin);
+
+            //    newBrowserWinText = driver.findElement(By.tagName("body")).getText();
+            //}
+            return new BrowserWindow(driver);
     }
+}
 }
