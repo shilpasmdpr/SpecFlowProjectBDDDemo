@@ -9,10 +9,11 @@ namespace SpecFlowProjectBDDDemo.Features
     public class CheckBoxStepDefinitions
     {
         private IWebDriver driver;
-        CheckBoxPage checkBox;
+        private CheckBoxPage checkBox;
 
         public CheckBoxStepDefinitions(IWebDriver driver)
         {
+            checkBox = new CheckBoxPage(driver);
             this.driver = driver;
         }
         [Then(@"Verify Check Box Display")]
@@ -30,7 +31,7 @@ namespace SpecFlowProjectBDDDemo.Features
         [When(@"the click on Toggle")]
         public void WhenTheClickOnToggle()
         {
-            checkBox.ClickOnTextBox();
+            checkBox.ClickOnToggle();
         }
 
         [When(@"Click on Notes checkbox")]

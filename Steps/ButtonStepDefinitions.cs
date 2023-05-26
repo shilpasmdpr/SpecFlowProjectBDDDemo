@@ -9,10 +9,11 @@ namespace SpecFlowProjectBDDDemo.Steps
     public class ButtonStepDefinitions
     {
         private IWebDriver driver;
-        ButtonPage? buttonPage;
+        private ButtonPage buttonPage;
         public ButtonStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
+            buttonPage = new ButtonPage(driver);
         }
         [Then(@"Verify Button Element Display")]
         public void ThenVerifyButtonElementDisplay()

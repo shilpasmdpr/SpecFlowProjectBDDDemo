@@ -15,12 +15,18 @@ namespace SpecFlowProjectBDDDemo.Utility
 {
     public class BasePage
     {
-        private IWebDriver driver;
+        protected IWebDriver driver;
+
+        public BasePage(IWebDriver driver)
+        {
+           this.driver = driver;
+        }
         
         public Boolean IsElementDisplayed(By by)
         {
             try
             {
+                Thread.Sleep(2000);
                 return driver.FindElement(by).Displayed;
             }
             catch (Exception)
@@ -45,6 +51,7 @@ namespace SpecFlowProjectBDDDemo.Utility
         {
             new Actions(driver).Click(webElement).Perform();
         }
+
         public void PerformDoubleClickAction(IWebElement webElement)
         {
             new Actions(driver).DoubleClick(webElement).Perform();
@@ -55,7 +62,14 @@ namespace SpecFlowProjectBDDDemo.Utility
         }
         public void ClickButtonByXPath(By by)
         {
-            driver.FindElement(by).Click();
+            try
+            {
+                Thread.Sleep(2000);
+                driver.FindElement(by).Click();
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace SpecFlowProjectBDDDemo.Pages
     public class WebTablesPage : BasePage
     {
         private IWebDriver driver;
-        public WebTablesPage(IWebDriver driver)
+        public WebTablesPage(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
         }
@@ -49,7 +49,7 @@ namespace SpecFlowProjectBDDDemo.Pages
         }
         public WebTablesPage AssertRegistrationHeading()
         {
-            Assert.AreEqual("Registration Form", RegistrationForm);
+            Assert.AreEqual("Registration Form", GetInnerTextAttributeValueByLocator(RegistrationForm));
 
             return new WebTablesPage(driver);
         }
@@ -82,8 +82,8 @@ namespace SpecFlowProjectBDDDemo.Pages
             Assert.AreEqual(firstName, GetInnerTextAttributeValueByLocator(TableFirstNameValue));
             Assert.AreEqual(lastName, GetInnerTextAttributeValueByLocator(TableLastNameValue));
             Assert.AreEqual(email, GetInnerTextAttributeValueByLocator(TableEmailValue));
-            Assert.AreEqual(age, GetInnerTextAttributeValueByLocator(TableAgeValue));
-            Assert.AreEqual(salary, GetInnerTextAttributeValueByLocator(TableSalaryValue));
+            Assert.AreEqual(age.Trim(), GetInnerTextAttributeValueByLocator(TableAgeValue).Trim());
+            Assert.AreEqual(salary.Trim(), GetInnerTextAttributeValueByLocator(TableSalaryValue).Trim());
             Assert.AreEqual(department, GetInnerTextAttributeValueByLocator(TableDepartmentValue));
             return new WebTablesPage(driver);
         }

@@ -6,6 +6,7 @@ Background: Launch Demo QA Page
 
 @DemoQA
 Scenario: Verify the button selected by the message displayed on button click
+When Click On Element Option
 	Then Verify Button Element Display
 	When Click on Button Element
 	Then Verify Button Page Heading

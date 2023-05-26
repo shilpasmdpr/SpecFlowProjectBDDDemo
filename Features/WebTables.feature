@@ -1,8 +1,11 @@
 ﻿Feature: WebTables
 	Simple calculator for adding two numbers
-
+Background: Launch Demo QA Page
+	Given Launch Demo QA URL
+	Then Verify Demo QA page title
 @DemoQA
 Scenario Outline: Edit the contents of the Web Table
+When Click On Element Option
 	Then Verify Web Tables Element Display
 	When Click On Web Tables Element
 	And Click On Edit Web Tables

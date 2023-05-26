@@ -14,11 +14,12 @@ namespace SpecFlowProjectBDDDemo.Pages
     {
         private IWebDriver driver;
 
-        public ElementPage(IWebDriver driver)
+        public ElementPage(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
         }
-
+        
+            By ElementIcon = By.XPath("(//div[@class='avatar mx-auto white'])[1]");
         By ElementOption = By.XPath("//*[text()='Elements']");
         By TextBoxHeading = By.XPath("//div[text()='Text Box']");
         By TextBoxOption = By.XPath("//span[text()='Text Box']");
@@ -30,7 +31,8 @@ namespace SpecFlowProjectBDDDemo.Pages
         By EmailValue = By.Id("email");
         By CurrentAddressValue = By.Id("currentAddress");
         By PermanentAddressValue = By.Id("permanentAddress");
-
+        By submit = By.Id("submit");
+        By Output = By.Id("output");
         public void verifyElementDisplay()
         {
             IsElementDisplayed(ElementOption);
@@ -39,7 +41,7 @@ namespace SpecFlowProjectBDDDemo.Pages
         public void ClickOnElementOption()
         {
             Thread.Sleep(2000);
-            driver.FindElement(ElementOption).Click();
+            driver.FindElement(ElementIcon).Click();
             Thread.Sleep(2000);
             //return new ElementPage(driver);
         }
@@ -63,21 +65,29 @@ namespace SpecFlowProjectBDDDemo.Pages
             Assert.AreEqual("Text Box", TextBoxHeading);
             //return new ElementPage(driver);
         }
+        public void VerifyTextBoxFields ()
+        {
+            IsElementDisplayed(FullNameInput);
+            IsElementDisplayed(EmailInput);
+            IsElementDisplayed(CurrentAddressInput);
+            IsElementDisplayed(PermanentAddressInput);
+            
+        }
         public void EnterTextBoxValues(string fullName,string Email,string currentAddress, string permanentAddress)
         {
             SendKeys(FullNameInput, fullName);
             SendKeys(EmailInput, Email);
             SendKeys(CurrentAddressInput, currentAddress);
             SendKeys(PermanentAddressInput, permanentAddress);
-            //return new ElementPage(driver);
+            Thread.Sleep(2000);
+            driver.FindElement(submit).Click();
         }
         public void VerifyTextBoxValues(string fullName, string Email, string currentAddress, string permanentAddress)
         {
-            Assert.AreEqual(fullName, GetInnerTextAttributeValueByLocator(FullNameValue));
-            Assert.AreEqual(fullName, GetInnerTextAttributeValueByLocator(EmailValue));
-            Assert.AreEqual(fullName, GetInnerTextAttributeValueByLocator(CurrentAddressValue));
-            Assert.AreEqual(fullName, GetInnerTextAttributeValueByLocator(PermanentAddressValue));
-            //return new ElementPage(driver);
+            Assert.IsTrue(GetInnerTextAttributeValueByLocator(Output).Contains(fullName));
+            Assert.IsTrue(GetInnerTextAttributeValueByLocator(Output).Contains(Email));
+            Assert.IsTrue(GetInnerTextAttributeValueByLocator(Output).Contains(currentAddress));
+            Assert.IsTrue(GetInnerTextAttributeValueByLocator(Output).Contains(permanentAddress));
         }
     }
 }

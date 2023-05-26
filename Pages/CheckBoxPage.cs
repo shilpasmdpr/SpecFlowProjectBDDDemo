@@ -13,7 +13,7 @@ namespace SpecFlowProjectBDDDemo.Pages
     {
         private IWebDriver driver;
 
-        public CheckBoxPage(IWebDriver driver)
+        public CheckBoxPage(IWebDriver driver):base(driver)
         {
             this.driver = driver;
         }

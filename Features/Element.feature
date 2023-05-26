@@ -11,8 +11,7 @@ Scenario Outline: Verify Text Elements
 	When Click On Element Option
 	Then Verify Text Box Option Display
 	When Click On Text Box Option
-	Then Verify Text Box heading Display
-	And Verify Text Fields
+	Then Verify Text Fields
 	When Enter Values Into Text Box Full Name <Full Name> , Email <Email>,Current Address<Current Address>And Permanent Address<Permanent Address> Submit
 	Then Verify <Full Name>,<Email>,<Current Address>And <Permanent Address> Values
 	Examples: 

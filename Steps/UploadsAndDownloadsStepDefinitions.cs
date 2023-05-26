@@ -1,18 +1,20 @@
 using OpenQA.Selenium;
 using SpecFlowProjectBDDDemo.Pages;
+using SpecFlowProjectBDDDemo.Utility;
 using System;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowProjectBDDDemo.Steps
 {
     [Binding]
-    public class UploadsAndDownloadsStepDefinitions
+    public class UploadsAndDownloadsStepDefinitions 
     {
         private IWebDriver driver;
-        UploadPage? uploadPage;
+        private UploadPage uploadPage;
         public UploadsAndDownloadsStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
+            uploadPage = new UploadPage(driver);
         }
         [Then(@"Verify Upload And Download Element Display")]
         public void ThenVerifyUploadAndDownloadElementDisplay()

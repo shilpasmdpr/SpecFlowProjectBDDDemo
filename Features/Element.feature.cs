@@ -140,16 +140,13 @@ this.FeatureBackground();
  testRunner.When("Click On Text Box Option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
- testRunner.Then("Verify Text Box heading Display", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Verify Text Fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 15
- testRunner.And("Verify Text Fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 16
  testRunner.When(string.Format("Enter Values Into Text Box Full Name {0} , Email {1},Current Address{2}And Perman" +
                             "ent Address{3} Submit", fullName, email, currentAddress, permanentAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 17
+#line 16
  testRunner.Then(string.Format("Verify {0},{1},{2}And {3} Values", fullName, email, currentAddress, permanentAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

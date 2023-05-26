@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SpecFlowProjectBDDDemo.Pages
 {
@@ -16,7 +17,7 @@ namespace SpecFlowProjectBDDDemo.Pages
     {
         private IWebDriver driver;
 
-        public UploadPage(IWebDriver driver)
+        public UploadPage(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
         }
@@ -24,6 +25,7 @@ namespace SpecFlowProjectBDDDemo.Pages
         By UploadFile = By.Id("uploadFile");
         By UploadFilePath = By.Id("uploadedFilePath");
         By Download = By.Id("downloadButton");
+        private IWebElement UploadFilePathInput => driver.FindElement(By.XPath("//input[@type='file']"));
 
         public UploadPage VerifyUploadElementDisplay()
         {
@@ -33,22 +35,25 @@ namespace SpecFlowProjectBDDDemo.Pages
         public UploadPage ClickOnUploadAndDownloadOption()
         {
             Thread.Sleep(2000);
-            ClickButtonByXPath(UploadAndDownloadOption);
+           driver.FindElement(UploadAndDownloadOption).Click();
+
             Thread.Sleep(2000);
             return new UploadPage(driver);
         }
         public UploadPage ClickAndUploadFile()
         {
             Thread.Sleep(2000);
-            ClickButtonByXPath(UploadFile);
-            Thread.Sleep(2000);
-            SendKeys(UploadFile,"C:\\Users\\shilp\\Downloads.jpeg");
+            IWebElement element = driver.FindElement(By.Id("uploadFile"));
+            // Specify the path to the file you want to upload
+            string filePath = "C:\\Users\\shilp\\Downloads\\sampleFile.jpeg";
+            // Enter the file path into the file input field
+            element.SendKeys(filePath);
             return new UploadPage(driver);
         }
         public UploadPage VerifyUploadFile()
         {
             Thread.Sleep(2000);
-            Assert.AreEqual(UploadFilePath, "C:\\fakepath\\sampleFile.jpeg");
+            Assert.AreEqual(GetInnerTextAttributeValueByLocator(UploadFilePath), "C:\\fakepath\\sampleFile.jpeg");
             return new UploadPage(driver);
         }
         public UploadPage ClickOnDownloadButton()

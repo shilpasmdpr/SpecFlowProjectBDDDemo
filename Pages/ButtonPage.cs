@@ -15,7 +15,7 @@ namespace SpecFlowProjectBDDDemo.Pages
     {
         private IWebDriver driver;
 
-        public ButtonPage(IWebDriver driver)
+        public ButtonPage(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
         }
@@ -61,7 +61,7 @@ namespace SpecFlowProjectBDDDemo.Pages
         }
         public ButtonPage VerifyDoubleClickMsgDisplay()
         {
-           Assert.AreEqual("You have done a double click", DoubleClickMsg);
+           Assert.AreEqual("You have done a double click", GetInnerTextAttributeValueByLocator(DoubleClickMsg));
             return new ButtonPage(driver);
         }
         public ButtonPage RightClickOnDoubleClickMebutton()
@@ -72,7 +72,7 @@ namespace SpecFlowProjectBDDDemo.Pages
         }
         public ButtonPage VerifyRightClickMsgDisplay()
         {
-            Assert.AreEqual("You have done a right click", RightClickMsg);
+            Assert.AreEqual("You have done a right click", GetInnerTextAttributeValueByLocator(RightClickMsg));
             return new ButtonPage(driver);
         }
         public ButtonPage ClickOnDoubleClickMebutton()
@@ -82,7 +82,7 @@ namespace SpecFlowProjectBDDDemo.Pages
         }
         public ButtonPage VerifyClickMsgDisplay()
         {
-            Assert.AreEqual("You have done a dynamic click", ClickMsg);
+            Assert.AreEqual("You have done a dynamic click", GetInnerTextAttributeValueByLocator(ClickMsg));
             return new ButtonPage(driver);
         }
     }

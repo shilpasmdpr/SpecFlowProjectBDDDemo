@@ -16,26 +16,28 @@ namespace SpecFlowProjectBDDDemo.Pages
     {
         private IWebDriver driver;
 
-        public BrowserWindow(IWebDriver driver)
+        public BrowserWindow(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
         }
+        By AllertFrameWindowMenu = By.XPath("//*[text()='Alerts, Frame & Windows']");
         By AllertFrameWindow = By.XPath("(//div[@class='header-text'])[3]");
         By BrowserWindows = By.XPath("//span[text()='Browser Windows']");
         By NewTabButton = By.Id("tabButton");
         By WindowTabButton = By.Id("windowButton");
         By MessageWindowButton = By.Id("messageWindowButton");
         By SampleHeading = By.Id("sampleHeading");
+        By body = By.XPath("//body");
 
         public BrowserWindow VerifyAllertFrameWindowOptionDisplay()
         {
-            IsElementDisplayed(AllertFrameWindow);
+            IsElementDisplayed(AllertFrameWindowMenu);
             return new BrowserWindow(driver);
         }
         public BrowserWindow ClickOnAllertFrameWindowOption()
         {
             Thread.Sleep(2000);
-            ClickButtonByXPath(AllertFrameWindow);
+            ClickButtonByXPath(AllertFrameWindowMenu);
             Thread.Sleep(2000);
             return new BrowserWindow(driver);
         }
@@ -80,9 +82,14 @@ namespace SpecFlowProjectBDDDemo.Pages
         public BrowserWindow VerifyNewWindowContent()
         {
             Thread.Sleep(2000);
-            driver.SwitchTo().NewWindow(WindowType.Window); 
-            Thread.Sleep(2000);
-            Assert.AreEqual(driver.SwitchTo().Window(driver.WindowHandles[1]).Url, "https://demoqa.com/sample");
+            var windowHandles = driver.WindowHandles;
+            foreach (var handle in windowHandles)
+            {
+                driver.SwitchTo().Window(handle);
+
+                Thread.Sleep(2000);
+                Assert.AreEqual(driver.SwitchTo().Window(driver.WindowHandles[1]).Url, "https://demoqa.com/sample");
+            }
             driver.SwitchTo().Window(driver.WindowHandles[1]).Close();
             Thread.Sleep(2000);
             driver.SwitchTo().Window(driver.WindowHandles[0]);
@@ -98,23 +105,19 @@ namespace SpecFlowProjectBDDDemo.Pages
         public BrowserWindow VerifyNewWindowMessage()
         {
             Thread.Sleep(2000);
-            driver.SwitchTo().NewWindow(WindowType.Window);
-            //Set<String> winHandles = driver.getWindowHandles();
-            //Iterator<String> itr = winHandles.iterator();
+            var windowHandles = driver.WindowHandles;
+            foreach (var handle in windowHandles)
+            {
+                driver.SwitchTo().Window(handle);
 
-            //String currentWin = itr.next();
-            //String newBrowserWin = null;
-            //if (itr.hasNext())
-            //    newBrowserWin = itr.next();
-
-            //String newBrowserWinText;
-            //if (newBrowserWin != null)
-            //{
-            //    driver.switchTo().window(newBrowserWin);
-
-            //    newBrowserWinText = driver.findElement(By.tagName("body")).getText();
-            //}
+                Thread.Sleep(2000);
+                string expectedAlertText = "Knowledge increases by sharing but not by saving. Please share this website with your friends and in your organization.";
+                //Assert.Contains(driver.SwitchTo().Window(driver.WindowHandles[1]));
+            }
+            driver.SwitchTo().Window(driver.WindowHandles[1]).Close();
+            Thread.Sleep(2000);
+            driver.SwitchTo().Window(driver.WindowHandles[0]);
             return new BrowserWindow(driver);
-    }
+        }
 }
 }

@@ -27,6 +27,7 @@ namespace SpecFlowProjectBDDDemo
         [When(@"Click On Element Option")]
         public void WhenClickOnElementOption()
         {
+            Thread.Sleep(2000);
             elementPage.ClickOnElementOption();
         }
 
@@ -51,7 +52,7 @@ namespace SpecFlowProjectBDDDemo
         [Then(@"Verify Text Fields")]
         public void ThenVerifyTextFields()
         {
-            throw new PendingStepException();
+            elementPage.VerifyTextBoxFields();
         }
         [When(@"Enter Values Into Text Box Full Name (.*) , Email (.*),Current Address(.*)And Permanent Address(.*) Submit")]
         public void WhenEnterValuesIntoTextBoxFullNameEmailCurrentAddressAndPermanentAddressSubmit(string fullName, string Email, string currentAddress, string permanentAddress)

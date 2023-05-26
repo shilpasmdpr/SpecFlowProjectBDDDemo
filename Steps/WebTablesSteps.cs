@@ -8,10 +8,16 @@ namespace SpecFlowProjectBDDDemo.Steps
     [Binding]
     public class WebTablesSteps
     {
-            private IWebDriver driver;
-        WebTablesPage webTablesPage;
+        private IWebDriver driver;
+        private WebTablesPage webTablesPage;
 
-            [Then(@"Verify Web Tables Element Display")]
+        public WebTablesSteps(IWebDriver driver)
+        {
+            webTablesPage = new WebTablesPage(driver);
+            this.driver = driver;
+        }
+
+        [Then(@"Verify Web Tables Element Display")]
         public void ThenVerifyWebTablesElementDisplay()
         {
             webTablesPage.VerifyWebTablesDisplay();

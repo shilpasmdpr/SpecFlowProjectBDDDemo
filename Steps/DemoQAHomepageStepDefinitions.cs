@@ -2,6 +2,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using SpecFlowProjectBDDDemo.Pages;
+using SpecFlowProjectBDDDemo.Utility;
 using System;
 using System.Threading;
 using TechTalk.SpecFlow;
@@ -9,11 +10,11 @@ using TechTalk.SpecFlow;
 namespace SpecFlowProjectBDDDemo
 {
     [Binding]
-    public class DemoQAHomepageStepDefinitions
+    public class DemoQAHomepageStepDefinitions : BasePage
     {
         private IWebDriver driver;
        private HomePage homePage;
-        public DemoQAHomepageStepDefinitions(IWebDriver driver)
+        public DemoQAHomepageStepDefinitions(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
             homePage = new HomePage(driver);

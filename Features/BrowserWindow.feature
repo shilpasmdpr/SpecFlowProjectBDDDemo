@@ -1,9 +1,11 @@
 ﻿Feature: BrowserWindow
 
-A short summary of the feature
+Background: Launch Demo QA Page
+	Given Launch Demo QA URL
+	Then Verify Demo QA page title
 
-@tag1
-Scenario: Write logic to handle (New tab, New Window and New Window message)
+@DemoQA
+ Scenario: Write logic to handle (New tab, New Window and New Window message)
 	Then Verify Allert Frame Window Option Display
 	When Click on Allert Frame Window Option
 	Then Verify Browser Windows Display

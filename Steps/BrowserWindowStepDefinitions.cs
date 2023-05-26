@@ -1,5 +1,6 @@
 using OpenQA.Selenium;
 using SpecFlowProjectBDDDemo.Pages;
+using SpecFlowProjectBDDDemo.Utility;
 using System;
 using TechTalk.SpecFlow;
 
@@ -7,12 +8,14 @@ namespace SpecFlowProjectBDDDemo.Steps
 {
     [Binding]
 
-    public class BrowserWindowStepDefinitions
+    public class BrowserWindowStepDefinitions : BasePage
     {
         private IWebDriver driver;
-        BrowserWindow? browserWindow;
-        public BrowserWindowStepDefinitions(IWebDriver driver)
+        private BrowserWindow browserWindow;
+
+        public BrowserWindowStepDefinitions(IWebDriver driver) : base(driver)
         {
+            browserWindow = new BrowserWindow(driver);
             this.driver = driver;
         }
         [Then(@"Verify Allert Frame Window Option Display")]
@@ -66,7 +69,7 @@ namespace SpecFlowProjectBDDDemo.Steps
         [Then(@"Verify New Window Message")]
         public void ThenVerifyNewWindowMessage()
         {
-            throw new PendingStepException();
+            browserWindow.VerifyNewWindowContent();
         }
     }
 }
