@@ -43,6 +43,9 @@ namespace SpecFlowProjectBDDDemo.Pages
         }
         public WebTablesPage ClickOnWebTables()
         {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            IWebElement WebTablesEle = driver.FindElement(WebTables);
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", WebTablesEle);
             driver.FindElement(WebTables).Click();
             Thread.Sleep(2000);
             return new WebTablesPage(driver);

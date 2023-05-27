@@ -41,6 +41,9 @@ namespace SpecFlowProjectBDDDemo.Pages
         public void ClickOnElementOption()
         {
             Thread.Sleep(2000);
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            IWebElement ElementEle = driver.FindElement(ElementIcon);
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", ElementEle);
             driver.FindElement(ElementIcon).Click();
             Thread.Sleep(2000);
             //return new ElementPage(driver);

@@ -9,7 +9,8 @@ Scenario: Verify Alert
 Then Verify Allert Frame Window Option Display
 	When Click on Allert Frame Window Option
 	Then Verify Alert Menu Display
-	When Click on Click Button to see alert
+	When Click On Alert Tab
+	And Click on Click Button to see alert
 	Then Verify Alert and Click On OK
 	When Click on On button click, alert will appear after seconds
 	Then Verify Appear Alert and Click On OK

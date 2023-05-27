@@ -20,8 +20,14 @@ namespace SpecFlowProjectBDDDemo.Steps
         public void ThenVerifyAlertMenuDisplay()
         {
             alertPage.VerifyAlertMenuDisplay();
+            
+        }
+        [When(@"Click On Alert Tab")]
+        public void WhenClickOnAlertTab()
+        {
             alertPage.ClickOnAlert();
         }
+
         [When(@"Click on Click Button to see alert")]
         public void WhenClickOnClickButtonToSeeAlert()
         {

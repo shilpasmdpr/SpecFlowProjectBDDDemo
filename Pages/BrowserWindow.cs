@@ -36,6 +36,9 @@ namespace SpecFlowProjectBDDDemo.Pages
         }
         public BrowserWindow ClickOnAllertFrameWindowOption()
         {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            IWebElement AllertFrameWindowMenuEle = driver.FindElement(AllertFrameWindowMenu);
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", AllertFrameWindowMenuEle);
             Thread.Sleep(2000);
             ClickButtonByXPath(AllertFrameWindowMenu);
             Thread.Sleep(2000);

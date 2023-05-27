@@ -11,6 +11,7 @@ namespace SpecFlowProjectBDDDemo.Pages
     public class CreateUserPage : BasePage
     {
         private IWebDriver driver;
+        string UserName;
 
         public CreateUserPage(IWebDriver driver) : base(driver)
         {
@@ -25,6 +26,7 @@ namespace SpecFlowProjectBDDDemo.Pages
         By InputUserName = By.Id("userName");
         By InputPassword = By.Id("password");
         By RegisterButton = By.Id("register");
+        By Login = By.Id("login");
 
         public CreateUserPage VerifyBookStoreApplicationDisplay()
         {
@@ -75,6 +77,7 @@ namespace SpecFlowProjectBDDDemo.Pages
             SendKeys(InputLastName, lastName);
             SendKeys(InputUserName, username);
             SendKeys(InputPassword, password);
+            string UserName = GetInnerTextAttributeValueByLocator(InputUserName);
             Thread.Sleep(2000);
             return new CreateUserPage(driver);
         }
@@ -119,7 +122,21 @@ namespace SpecFlowProjectBDDDemo.Pages
             Assert.IsTrue(alertText.Contains("User Register Successfully"));
             return new CreateUserPage(driver);
         }
-
-        
+        public CreateUserPage LoginAsUserAndVerify(string password)
+        {
+            driver.Url = "https://demoqa.com/login";
+            Thread.Sleep(2000);
+            SendKeys(InputUserName, UserName);
+            SendKeys(InputPassword, password);
+            ClickButtonByXPath(Login);
+            return new CreateUserPage(driver);
+        }
+        public CreateUserPage VerifyPageTitle()
+        {
+            string url = driver.Url;
+            Thread.Sleep(2000);
+            Assert.AreEqual(url, "https://demoqa.com/profile");
+            return new CreateUserPage(driver);
+        }
     }
 }

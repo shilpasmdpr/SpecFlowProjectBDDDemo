@@ -77,5 +77,17 @@ namespace SpecFlowProjectBDDDemo
         {
             createUserPage.VerifySuccessfulUserCreation();
         }
+        [When(@"Login as a new user")]
+        public void WhenLoginAsANewUser(string password)
+        {
+            createUserPage.LoginAsUserAndVerify(password);
+        }
+
+        [Then(@"Verify Page title")]
+        public void ThenVerifyPageTitle()
+        {
+            createUserPage.VerifyPageTitle();
+        }
+
     }
 }

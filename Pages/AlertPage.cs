@@ -33,6 +33,9 @@ namespace SpecFlowProjectBDDDemo.Pages
         }
         public AlertPage ClickOnAlert()
         {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            IWebElement AlertMenuEle = driver.FindElement(AlertMenu);
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", AlertMenuEle);
             Thread.Sleep(1000);
             ClickButtonByXPath(AlertMenu);
             return new AlertPage(driver);
