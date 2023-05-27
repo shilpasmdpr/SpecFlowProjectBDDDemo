@@ -37,7 +37,14 @@ namespace SpecFlowProjectBDDDemo.Utility
         public void SendKeys(By by,string text)
         {
 
-            driver.FindElement(by).SendKeys(text);
+            try
+            {
+                Thread.Sleep(2000);
+                driver.FindElement(by).SendKeys(text);
+            }
+            catch (Exception)
+            {
+            }
         }
         public String GetInnerTextAttributeValueByLocator(By by)
         {
