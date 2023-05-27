@@ -78,11 +78,15 @@ namespace SpecFlowProjectBDDDemo.Pages
         }
         public void EnterTextBoxValues(string fullName,string Email,string currentAddress, string permanentAddress)
         {
+            Thread.Sleep(2000);
             SendKeys(FullNameInput, fullName);
             SendKeys(EmailInput, Email);
             SendKeys(CurrentAddressInput, currentAddress);
             SendKeys(PermanentAddressInput, permanentAddress);
             Thread.Sleep(2000);
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            IWebElement submitEle = driver.FindElement(submit);
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", submitEle);
             driver.FindElement(submit).Click();
         }
         public void VerifyTextBoxValues(string fullName, string Email, string currentAddress, string permanentAddress)

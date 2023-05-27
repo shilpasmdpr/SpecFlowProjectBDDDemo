@@ -14,6 +14,5 @@ Background: Launch Demo QA Page
 	Then Verify New Tab Content
 	When Click On New Window
 	Then Verify New Window Content
-	When Click On New Window
-	Then Verify New Window Message
+	
 

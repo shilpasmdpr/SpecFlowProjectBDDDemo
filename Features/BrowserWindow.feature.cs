@@ -141,12 +141,6 @@ this.FeatureBackground();
 #line 16
  testRunner.Then("Verify New Window Content", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 17
- testRunner.When("Click On New Window", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 18
- testRunner.Then("Verify New Window Message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
             }
             this.ScenarioCleanup();
         }

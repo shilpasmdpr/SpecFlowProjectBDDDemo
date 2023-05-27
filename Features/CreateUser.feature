@@ -16,7 +16,7 @@ When Enter FirstName <FirstName> , LastName <LastName>, UserName <UserName> and 
 Then Verify CAPTCHA
 When Click On Register Button
 Then Verify User Creation Successful Message
-When Login as a new user
+When Login as a new user with <Password>
 Then Verify Page title
 Examples: 
 |FirstName|LastName|Password|

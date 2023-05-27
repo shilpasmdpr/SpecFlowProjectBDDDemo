@@ -121,10 +121,10 @@ this.FeatureBackground();
     testRunner.When("Click On Element Option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.When("Click on Upload And Download Element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Click on Upload And Download Element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
- testRunner.When("Click on choose file and Upload a file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Click on choose file and Upload a file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
  testRunner.Then("Verify file uploaded successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

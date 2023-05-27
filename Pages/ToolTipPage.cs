@@ -44,8 +44,9 @@ namespace SpecFlowProjectBDDDemo.Pages
             IWebElement element = driver.FindElement(By.Id("toolTipButton")); 
             Actions action = new Actions(driver);
             action.MoveToElement(element).Perform();
+            Thread.Sleep(2000);
             IWebElement tooltipElement = driver.FindElement(By.XPath("//div[@role='tooltip']"));
-            tooltipElement.Click();
+            //tooltipElement.Click();
             string tooltipText = tooltipElement.GetAttribute("innerText");
             Thread.Sleep(2000);
             Assert.AreEqual(tooltipText, "You hovered over the Button");
@@ -57,8 +58,8 @@ namespace SpecFlowProjectBDDDemo.Pages
             IWebElement element1 = driver.FindElement(By.Id("toolTipTextField"));
             Actions action = new Actions(driver);
             action.MoveToElement(element1).Perform();
+            Thread.Sleep(2000);
             IWebElement tooltipElement1 = driver.FindElement(By.XPath("//div[@role='tooltip']"));
-            tooltipElement1.Click();
             string tooltipText1 = tooltipElement1.GetAttribute("innerText");
             Thread.Sleep(2000);
             Assert.AreEqual(tooltipText1, "You hovered over the text field");
@@ -68,11 +69,15 @@ namespace SpecFlowProjectBDDDemo.Pages
         public ToolTipPage MouseHoverOnContraryAndFetchData()
         {
             Thread.Sleep(1000);
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            IWebElement ContraryEle = driver.FindElement(By.XPath("//*[text()='Contrary']"));
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", ContraryEle);
+            Thread.Sleep(1000);
             IWebElement element2 = driver.FindElement(By.XPath("//*[text()='Contrary']"));
             Actions action = new Actions(driver);
             action.MoveToElement(element2).Perform();
+            Thread.Sleep(2000);
             IWebElement tooltipElement2 = driver.FindElement(By.XPath("//div[@role='tooltip']"));
-            tooltipElement2.Click();
             string tooltipText2 = tooltipElement2.GetAttribute("innerText");
             Thread.Sleep(2000);
             Assert.AreEqual(tooltipText2, "You hovered over the Contrary");
@@ -85,6 +90,7 @@ namespace SpecFlowProjectBDDDemo.Pages
             IWebElement element3 = driver.FindElement(By.XPath("//*[text()='1.10.32']"));
             Actions action = new Actions(driver);
             action.MoveToElement(element3).Perform();
+            Thread.Sleep(2000);
             IWebElement tooltipElement3 = driver.FindElement(By.XPath("//div[@role='tooltip']"));
             tooltipElement3.Click();
             string tooltipText3 = tooltipElement3.GetAttribute("innerText");

@@ -157,7 +157,7 @@ testRunner.When("Click On Register Button", ((string)(null)), ((TechTalk.SpecFlo
 testRunner.Then("Verify User Creation Successful Message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 19
-testRunner.When("Login as a new user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("Login as a new user with {0}", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 20
 testRunner.Then("Verify Page title", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

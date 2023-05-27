@@ -7,8 +7,8 @@ Background: Launch Demo QA Page
 @DemoQA
 Scenario: Verify Upload and Download 
     When Click On Element Option
-	When Click on Upload And Download Element
-	When Click on choose file and Upload a file
+	And Click on Upload And Download Element
+	And Click on choose file and Upload a file
 	Then Verify file uploaded successfully
 	When Click on download button
 	Then Verify file downloaded successfully

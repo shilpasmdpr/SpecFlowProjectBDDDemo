@@ -51,6 +51,9 @@ namespace SpecFlowProjectBDDDemo.Pages
         }
         public BrowserWindow ClickOnBrowserWindowsOption()
         {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            IWebElement BrowserWindowsEle = driver.FindElement(BrowserWindows);
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", BrowserWindowsEle);
             Thread.Sleep(2000);
             ClickButtonByXPath(BrowserWindows);
             Thread.Sleep(2000);

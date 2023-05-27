@@ -36,6 +36,9 @@ namespace SpecFlowProjectBDDDemo.Pages
         }
         public ButtonPage ClickOnElementOption()
         {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            IWebElement ButtonOptionEle = driver.FindElement(ButtonOption);
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", ButtonOptionEle);
             Thread.Sleep(2000);
             ClickButtonByXPath(ButtonOption);
             Thread.Sleep(2000);
@@ -44,7 +47,7 @@ namespace SpecFlowProjectBDDDemo.Pages
         public ButtonPage AssertButtonPageHeading()
         {
             Thread.Sleep(2000);
-            Assert.AreEqual(ButtonsPageHeading, "Buttons");
+            Assert.AreEqual(GetInnerTextAttributeValueByLocator(ButtonsPageHeading), "Buttons");
             Thread.Sleep(2000);
             return new ButtonPage(driver);
         }

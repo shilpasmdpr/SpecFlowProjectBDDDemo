@@ -16,12 +16,14 @@ namespace SpecFlowProjectBDDDemo.Steps
             this.driver = driver;
             alertPage = new AlertPage(driver);
         }
+        //Verify Alert option display
         [Then(@"Verify Alert Menu Display")]
         public void ThenVerifyAlertMenuDisplay()
         {
             alertPage.VerifyAlertMenuDisplay();
             
         }
+        //Click on Alert
         [When(@"Click On Alert Tab")]
         public void WhenClickOnAlertTab()
         {

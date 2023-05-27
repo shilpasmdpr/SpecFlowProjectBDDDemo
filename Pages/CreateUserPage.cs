@@ -131,6 +131,7 @@ namespace SpecFlowProjectBDDDemo.Pages
             ClickButtonByXPath(Login);
             return new CreateUserPage(driver);
         }
+
         public CreateUserPage VerifyPageTitle()
         {
             string url = driver.Url;

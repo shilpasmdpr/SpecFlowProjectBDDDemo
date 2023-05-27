@@ -52,6 +52,9 @@ namespace SpecFlowProjectBDDDemo.Pages
         }
         public AlertPage ClickOnTimerAlertButton()
         {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            IWebElement TimerAlertButtonEle = driver.FindElement(TimerAlertButton);
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", TimerAlertButtonEle);
             ClickButtonByXPath(TimerAlertButton);
             Thread.Sleep(6000);
             return new AlertPage(driver);
@@ -69,6 +72,9 @@ namespace SpecFlowProjectBDDDemo.Pages
         }
         public AlertPage ClickOnPromtButton()
         {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            IWebElement PromtButtonEle = driver.FindElement(PromtButton);
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", PromtButtonEle);
             ClickButtonByXPath(PromtButton);
             Thread.Sleep(6000);
             return new AlertPage(driver);

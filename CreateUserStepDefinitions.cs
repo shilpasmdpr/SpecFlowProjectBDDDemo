@@ -60,6 +60,7 @@ namespace SpecFlowProjectBDDDemo
             createUserPage.EnterUserValues(firstName, lastName, password);
         }
 
+        // need to handle the captcha manually 
         [Then(@"Verify CAPTCHA")]
         public void ThenVerifyCAPTCHA()
         {
@@ -77,8 +78,9 @@ namespace SpecFlowProjectBDDDemo
         {
             createUserPage.VerifySuccessfulUserCreation();
         }
-        [When(@"Login as a new user")]
-        public void WhenLoginAsANewUser(string password)
+        
+        [When(@"Login as a new user with Password@(.*)")]
+        public void WhenLoginAsANewUserWithPassword(string password)
         {
             createUserPage.LoginAsUserAndVerify(password);
         }

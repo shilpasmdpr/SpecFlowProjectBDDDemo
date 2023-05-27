@@ -35,7 +35,10 @@ namespace SpecFlowProjectBDDDemo.Pages
         public UploadPage ClickOnUploadAndDownloadOption()
         {
             Thread.Sleep(2000);
-           driver.FindElement(UploadAndDownloadOption).Click();
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            IWebElement UploadAndDownloadOptionEle = driver.FindElement(UploadAndDownloadOption);
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", UploadAndDownloadOptionEle);
+            driver.FindElement(UploadAndDownloadOption).Click();
 
             Thread.Sleep(2000);
             return new UploadPage(driver);
