@@ -4,7 +4,8 @@ Background: Launch Demo QA Page
 	Given Launch Demo QA URL
 	Then Verify Demo QA page title
 
-@DemoQA
+@UserCreation 
+
 Scenario Outline: Verify User Creation
 Then Verify Book Store Application Option Display
 When Click on Book Store Application

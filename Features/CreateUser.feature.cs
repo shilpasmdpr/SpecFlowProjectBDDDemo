@@ -87,12 +87,12 @@ namespace SpecFlowProjectBDDDemo.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify User Creation")]
-        [NUnit.Framework.CategoryAttribute("DemoQA")]
+        [NUnit.Framework.CategoryAttribute("UserCreation")]
         [NUnit.Framework.TestCaseAttribute("Shilpa", "MV", "Password@123456", null)]
         public virtual void VerifyUserCreation(string firstName, string lastName, string password, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "DemoQA"};
+                    "UserCreation"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -103,7 +103,7 @@ namespace SpecFlowProjectBDDDemo.Features
             argumentsOfScenario.Add("LastName", lastName);
             argumentsOfScenario.Add("Password", password);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify User Creation", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 8
+#line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -126,40 +126,40 @@ this.ScenarioInitialize(scenarioInfo);
 #line 3
 this.FeatureBackground();
 #line hidden
-#line 9
+#line 10
 testRunner.Then("Verify Book Store Application Option Display", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 10
+#line 11
 testRunner.When("Click on Book Store Application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 11
+#line 12
 testRunner.Then("Verify login option Display", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 12
+#line 13
 testRunner.When("Click on login option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 13
+#line 14
 testRunner.When("Click on New User", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 14
+#line 15
 testRunner.Then("Verify Register to Book Store Heading", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 15
+#line 16
 testRunner.When(string.Format("Enter FirstName {0} , LastName {1}, UserName <UserName> and {2}", firstName, lastName, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 16
+#line 17
 testRunner.Then("Verify CAPTCHA", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 17
+#line 18
 testRunner.When("Click On Register Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 18
+#line 19
 testRunner.Then("Verify User Creation Successful Message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 19
+#line 20
 testRunner.When(string.Format("Login as a new user with {0}", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 20
+#line 21
 testRunner.Then("Verify Page title", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
